@@ -1,0 +1,258 @@
+:root{
+    --bcg-primary: #0d9eca;
+    --add-btn-hover-clr: #00b8ff;
+    --header-txt-clr: #fff;
+    --txt-clr: #0d9eca;
+    --outline-clr: #000;
+    --trash-btn-clr: orangered;
+    --edit-btn-clr: lawngreen;
+}
+
+.dark-theme{
+    --bcg-primary: #151516;
+    --add-btn-hover-clr: #64748b;
+    --txt-clr: #171721;
+    --outline-clr: #000;
+    --txt-shadow-clr: 2px 1px #000;
+    --trash-btn-clr: orangered;
+    --edit-btn-clr: lawngreen;
+}
+
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--bcg-primary);
+    overflow-x: hidden;
+    transition: all 0.2s linear;
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+
+.header{
+    align-items: center;
+    margin: 20px 100px 0px 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-title{
+    color: var(--header-txt-clr);
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+}
+
+.sun-icon {
+    background: none;
+    color: var(--header-txt-clr);
+    font-size: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: none;
+}
+
+.moon-icon {
+    background: none;
+    color: var(--header-txt-clr);
+    font-size: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.addnotes{
+    width: 250px;
+    height: 250px;
+    padding: 40px 20px;
+    text-align: center;
+    background-color: var(--header-txt-clr);
+    color: var(--txt-clr);
+    border-radius: 10px;
+    margin: 20px 0px 20px 20px;
+    cursor: pointer;
+}
+
+#add{
+    font-weight: lighter;
+    font-size: 70px;
+    border-style: dashed;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.text {
+    padding: 40px 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.notecard{
+    display: flex;   
+    flex-wrap: wrap;
+}
+
+.data{
+    width: 250px;
+    height: 250px;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--header-txt-clr);
+    color: var(--txt-clr);
+    border-radius: 10px;
+    margin: 20px 0px 20px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+h3.h3Text {
+    word-wrap: break-word;
+    line-height: 20px;
+}
+
+article.articleText {
+    word-wrap: break-word;
+    word-spacing: 5px;
+    line-height: 25px;
+    font-size: 14px;
+    overflow-x: hidden;
+    height: 147px;
+}
+article::-webkit-scrollbar{
+    display: none;
+}
+
+hr {
+    margin: 7px 0px;
+}
+
+.footer-div {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 7px;
+    align-items: center;
+}
+
+span.date {
+    font-size: 14px;
+}
+
+.icons-div i {
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.trash{
+    color: var(--trash-btn-clr);
+    margin-right: 7px;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.edit{
+    color: var(--edit-btn-clr);
+    margin-right: 5px;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.modal-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(73, 166, 233, 0.5);
+    place-items: center;
+    display: grid;
+    z-index: -10;
+    visibility: hidden;
+}
+
+.inputform {
+    background-color: var(--header-txt-clr);
+    color: var(--txt-clr);
+    padding: 20px;
+    border-radius: 7px;
+    max-width: 340px;
+    text-align: center;
+    position: relative;
+}
+
+.title{
+    padding: 5px 10px;
+    width: 260px;
+    height: 40px;
+    font-size: 14px;
+    outline: none;
+    border-radius: 5px;
+    text-transform: capitalize;
+    border: 1px solid var(--outline-clr);
+}
+
+.description{
+    padding: 5px 10px;
+    width: 260px;
+    outline: none;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid var(--outline-clr);
+    height: 130px;
+    overflow-x: hidden;
+    font-family: sans-serif;
+}
+.description::-webkit-scrollbar{
+    display: none;
+}
+
+#close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    background: transparent;
+    border-color: transparent;
+    color: var(--trash-btn-clr);
+    transition: all 0.2s linear;
+}
+
+#close:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.add-btn{
+    padding: 10px 20px;
+    background-color: var(--bcg-primary);
+    outline: none;
+    border: none;
+    border-radius: 7px;
+    color: var(--header-txt-clr);
+    font-weight: bold;
+    transition: all 0.2s linear;
+}
+
+.add-btn:hover{
+    background-color: var(--add-btn-hover-clr);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.change{
+    visibility: visible;
+    z-index: 0;
+}
