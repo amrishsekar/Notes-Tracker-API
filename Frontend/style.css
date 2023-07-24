@@ -207,11 +207,12 @@ span.date {
 .description{
     padding: 5px 10px;
     width: 260px;
+    height: 130px;
+    resize: none;
     outline: none;
     font-size: 14px;
     border-radius: 5px;
     border: 1px solid var(--outline-clr);
-    height: 130px;
     overflow-x: hidden;
     font-family: sans-serif;
 }

@@ -29,7 +29,7 @@ moon.addEventListener("click",()=>{
 
 sun.addEventListener("click",()=>{
     window.document.documentElement.classList.remove('dark-theme');
-    sun.style.display = "none"
+    sun.style.display = "none" 
     moon.style.display = "block"
 })
 
@@ -42,10 +42,21 @@ closeBtn.addEventListener("click", () => {
 })
 
 add.addEventListener("click",()=>{
- 
+
     if(title.value !== "" && description.value !== ""){
-        if(add.innerText=='Add Note'){
-            
+        if(add.innerText === "Add Note"){
+
+            if (window.document.documentElement.classList.contains('dark-theme')) {
+                window.document.documentElement.classList.add('dark-theme')
+                sun.style.display = "block"
+                moon.style.display = "none"
+            }
+            else{
+                window.document.documentElement.classList.remove('dark-theme')
+                sun.style.display = "none"
+                moon.style.display = "block"
+            }
+
             fetch("http://localhost:3000/posts",{
                 method: 'POST',
                 body: JSON.stringify({
@@ -145,12 +156,12 @@ window.addEventListener("DOMContentLoaded",()=>{
                 add.innerText = "Update";
 
                 title.value = e.target.parentElement.parentElement.parentElement.parentElement.children[0].innerText
-                description.value =  e.target.parentElement.parentElement.parentElement.parentElement.children[2].innerText
+                description.value = e.target.parentElement.parentElement.parentElement.parentElement.children[2].innerText
 
                 add.addEventListener("click",(e)=>{
                     if(title.value!=="" && description.value!==""){
-                        if(add.innerText == "Update"){
-
+                        if(add.innerText === "Update"){
+                            e.preventDefault()
                             fetch(`http://localhost:3000/posts/${updateId}`,{
                                 method: 'PUT',
                                 body: JSON.stringify({
@@ -162,7 +173,7 @@ window.addEventListener("DOMContentLoaded",()=>{
                                 headers: {
                                     'Content-type': 'application/json',
                                 }
-                            })
+                            }).then(res=>res.json()).then(data=>console.log(data))
 
                         }
                     }
